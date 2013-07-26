@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Swipext by SamRay1024</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Swipext</h1>
+        <p>An extended version of Brad Birdsall Swipe JS slider.</p>
+        <p class="view"><a href="https://github.com/SamRay1024/swipext">View the Project on GitHub <small>SamRay1024/swipext</small></a></p>
+        <ul>
+          <li><a href="https://github.com/SamRay1024/swipext/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/SamRay1024/swipext/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/SamRay1024/swipext">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="swipe-extended-slider" class="anchor" href="#swipe-extended-slider"><span class="octicon octicon-link"></span></a>Swipe Extended Slider</h1>
+
+<p><strong>Swipe Extended Slider</strong> (Swipext) est un plugin <strong>jQuery</strong> qui étend l'excellent
+<a href="http://swipejs.com">Swipe slider de Brad Birdsall</a> avec de nouvelles fonctionnalités comme le <strong>chargement différé
+des images</strong>, la <strong>navigation</strong> et la <strong>pagination</strong>.</p>
+
+<p>J'ai dû, pour les besoins d'un site Web, installer un slider qui devait gérer plus de 300 images et
+qui devait être compatible avec les périphériques tactiles (iPhone, iPad, ...). L'ennui, c'est que
+sur ce genre de périphérique, les navigateurs web sont le plus souvent limités en consommation
+mémoire. Avec mes 300 diapos, Safari mobile plantait systematiquement (à l'époque, c'était sur iPad2
+et iPhone 4).</p>
+
+<p><strong>Swipext</strong> peut gérer n'importer quel contenu dans les slides mais est spécialement préparé pour
+gérer une structure volumineuse HTML5 figure/figcatpion.</p>
+
+<p>Intéressé ? Voyez la suite...</p>
+
+<h2>
+<a name="utilisation" class="anchor" href="#utilisation"><span class="octicon octicon-link"></span></a>Utilisation</h2>
+
+<h3>
+<a name="structure-html" class="anchor" href="#structure-html"><span class="octicon octicon-link"></span></a>Structure HTML</h3>
+
+<h4>
+<a name="structure-minimum" class="anchor" href="#structure-minimum"><span class="octicon octicon-link"></span></a>Structure minimum</h4>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipext"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-wrap"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-slide"</span><span class="nt">&gt;</span>Slide content 1<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-slide"</span><span class="nt">&gt;</span>Slide content 2<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h4>
+<a name="structure-compl%C3%A8te" class="anchor" href="#structure-compl%C3%A8te"><span class="octicon octicon-link"></span></a>Structure complète</h4>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipext"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-wrap"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-slide"</span><span class="nt">&gt;</span>Slide content 1<span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-slide"</span><span class="nt">&gt;</span>Slide content 2<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-nav"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"swipe-prev"</span><span class="nt">&gt;</span>Prev.<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"swipe-next"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-pages"</span> <span class="na">data-tag=</span><span class="s">"button"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-caption"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<p>Vous pouvez voir ici les fonctionnalités supplémentaires :</p>
+
+<ul>
+<li>
+<code>.swipe-prev</code>, <code>.swipe-prev</code> : les boutons de navigations reconnus par Swipext,</li>
+<li>
+<code>.swipe-pages</code> : le noeud du DOM ou sont insérés les boutons de pagination,</li>
+<li>
+<code>.swipe-caption</code> : le noeud du DOM ou est dupliquée la légende de la diapo courante. </li>
+</ul><p>Ces noeuds ne sont pas obligatoires : les ajouter/enlever revient à activer/désactiver la
+fonctionnalité liée.</p>
+
+<p><code>.swipe-nav</code> n'est pas reconnu par Swipext ; c'est un simple noeud qui permet d'embarquer les
+boutons de navigation.</p>
+
+<h4>
+<a name="balise-des-boutons-de-pagination" class="anchor" href="#balise-des-boutons-de-pagination"><span class="octicon octicon-link"></span></a>Balise des boutons de pagination</h4>
+
+<p>Par défaut, Swipext utilise la balise <code>button</code> pour générer la pagination.</p>
+
+<p>Vous pouvez changer cette balise depuis l'attribut <code>data-tag</code> de l'élément <code>.swipe-pages</code>. Il
+devient alors possible de mettre une pagination du type :</p>
+
+<div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"swipe-pages"</span> <span class="na">data-tag=</span><span class="s">"li"</span><span class="nt">&gt;&lt;/ul&gt;</span>
+</pre></div>
+
+<h3>
+<a name="r%C3%A8gles-css-de-base" class="anchor" href="#r%C3%A8gles-css-de-base"><span class="octicon octicon-link"></span></a>Règles CSS de base</h3>
+
+<div class="highlight"><pre><span class="c">/**</span>
+<span class="c"> * Swipejs base rules</span>
+<span class="c"> */</span>
+<span class="nc">.swipe</span> <span class="p">{</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="k">visibility</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swipe-wrap</span> <span class="p">{</span>
+    <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swipe-wrap</span> <span class="o">&gt;</span> <span class="nc">.swipe-slide</span> <span class="p">{</span>
+    <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span><span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.swipe-slide</span> <span class="nt">img</span> <span class="p">{</span>
+    <span class="k">vertical-align</span><span class="o">:</span> <span class="k">middle</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">figure</span><span class="nc">.swipe-slide</span> <span class="p">{</span> <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/**</span>
+<span class="c"> * Swipext base rules</span>
+<span class="c"> */</span>
+<span class="nc">.swipext</span> <span class="p">{</span> <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.swipext</span> <span class="nt">button</span> <span class="p">{</span> <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="structure-css-compl%C3%A8te" class="anchor" href="#structure-css-compl%C3%A8te"><span class="octicon octicon-link"></span></a>Structure CSS complète</h3>
+
+<p>Swipext utilises les classes CSS pour manipuler les éléments du slider et voici la structure
+complète qu'il reconnait :</p>
+
+<pre><code>.swipext
+    .swipe
+        .swipe-wrap
+            .swipe-slide
+                img (this is the only element selected by tag)
+                .swipe-slide-caption
+    .swipe-prev
+    .swipe-next
+    .swipe-pages
+        .swipe-page
+    .swipe-caption
+</code></pre>
+
+<p>Cela signigie que <strong>vous êtes libres d'utiliser les balises HTML que vous voulez pour chaque
+élément</strong> puisque Swipext ne s'en occupe pas.</p>
+
+<h3>
+<a name="mise-en-place-javascript" class="anchor" href="#mise-en-place-javascript"><span class="octicon octicon-link"></span></a>Mise en place Javascript</h3>
+
+<p>Pour faire fonctionner Swipext, vous devez inclure <strong>jQuery</strong> et <strong>Swipe</strong>. J'ai l'habitude
+d'inclure les dépendances depuis le bas de page (et vous devriez faire de même ;-) sauf en cas de
+besoins spécifiques) :</p>
+
+<div class="highlight"><pre>        ...
+
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"swipe.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"swipext.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text-javascript"</span><span class="nt">&gt;</span>
+
+            <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'.swipext'</span><span class="p">).</span><span class="nx">swipext</span><span class="p">();</span>
+            <span class="p">});</span>
+
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<h3>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
+
+<p>Toutes les options de Swipe sont applicables à Swipext. <a href="https://github.com/bradbirdsall/Swipe#config-options">Voir les options de Swipe</a>.</p>
+
+<p>Les options ajoutées par Swipext sont les suivantes (_nom, type, valeur par défaut_) :</p>
+
+<ul>
+<li>
+<strong>lazyLoad</strong>, boolean, false : <code>true</code> pour activer le chargement différé des images,</li>
+<li>
+<strong>lazyLoadRange</strong>, integer, 1 : nombre d'images chargées autour de la diapo courante,</li>
+<li>
+<strong>defaultImg</strong>, string, 'data:...' : image de remplacement utilisée pour le chargement différé
+(données en base 64 ou chemin),</li>
+<li>
+<strong>hideClass</strong>, string, 'hide' : classe CSS utilisée pour masquer les boutons de navigation
+lorsque le caroussel n'est pas en continu et affiche la 1ère ou la dernière diapo,</li>
+<li>
+<strong>activeClass</strong>, string, 'active' : classe CSS utiliser pour marquer le <code>.swipe-page</code> de la diapo
+courante.</li>
+</ul><p><strong>Attention :</strong> quand <strong>lazyLoad</strong> est à <strong>true</strong>, <strong>startSlide</strong> est forcée <strong>0</strong>.</p>
+
+<h4>
+<a name="appliquer-%C3%A0-un-ensemble-de-caroussels" class="anchor" href="#appliquer-%C3%A0-un-ensemble-de-caroussels"><span class="octicon octicon-link"></span></a>Appliquer à un ensemble de caroussels</h4>
+
+<p>Vous pouvez appliquer les options au sélecteur jQuery :</p>
+
+<div class="highlight"><pre><span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.swipext'</span><span class="p">).</span><span class="nx">swipext</span><span class="p">({</span>
+
+        <span class="nx">lazyLoad</span><span class="o">:</span>       <span class="kc">false</span><span class="p">,</span>          <span class="c1">// Chargement différé</span>
+        <span class="nx">lazyLoadRange</span><span class="o">:</span>  <span class="mi">1</span><span class="p">,</span>              <span class="c1">// Intervalle du chargement différé</span>
+        <span class="nx">hideClass</span><span class="o">:</span>      <span class="s1">'hide'</span><span class="p">,</span>         <span class="c1">// Classe CSS pour masquer les boutons de navigation</span>
+        <span class="nx">activeClass</span><span class="o">:</span>    <span class="s1">'active'</span><span class="p">,</span>       <span class="c1">// Classe CSS pour marquer le bouton de la page courante</span>
+        <span class="nx">defaultImg</span><span class="o">:</span>     <span class="s1">'default.jpg'</span><span class="p">,</span>  <span class="c1">// Image par défaut pour le chargement différé</span>
+        <span class="nx">auto</span><span class="o">:</span>           <span class="kc">false</span><span class="p">,</span>          <span class="c1">// Défilement automatique, millisecondes</span>
+        <span class="nx">continuous</span><span class="o">:</span>     <span class="kc">false</span><span class="p">,</span>          <span class="c1">// Retourner au début après la dernière diapo</span>
+        <span class="nx">startSlide</span><span class="o">:</span>     <span class="mi">0</span>               <span class="c1">// Indice de la diapo de démarrage</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+<h4>
+<a name="appliquer-par-slider" class="anchor" href="#appliquer-par-slider"><span class="octicon octicon-link"></span></a>Appliquer par slider</h4>
+
+<p>Swipext vous permet de paramétrer certaines options directement depuis le caroussel grâce à des
+attributs <code>data-*</code> :</p>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipext"</span>
+    <span class="na">data-lazyload=</span><span class="s">"true"</span>
+    <span class="na">data-lazyloadrange=</span><span class="s">"2"</span>
+    <span class="na">data-continuous=</span><span class="s">"true"</span>
+    <span class="na">data-auto=</span><span class="s">"5000"</span>
+    <span class="na">data-speed=</span><span class="s">"300"</span>
+    <span class="na">data-startslide=</span><span class="s">"3"</span>
+    <span class="na">data-hideclasse=</span><span class="s">"hide"</span>
+    <span class="na">data-activeclasse=</span><span class="s">"active"</span>
+    <span class="na">data-defaultimg=</span><span class="s">"default.jpg"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h2>
+<a name="chargement-diff%C3%A9r%C3%A9--comment-faire-" class="anchor" href="#chargement-diff%C3%A9r%C3%A9--comment-faire-"><span class="octicon octicon-link"></span></a>Chargement différé : comment faire ?</h2>
+
+<h3>
+<a name="mettre-en-place-la-structure-html" class="anchor" href="#mettre-en-place-la-structure-html"><span class="octicon octicon-link"></span></a>Mettre en place la structure HTML</h3>
+
+<p>Installer un caroussel à chargement différé est plutôt simple. Jetez un oeil au code HTML suivant :</p>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipext"</span> <span class="na">data-lazyload=</span><span class="s">"true"</span> <span class="na">data-continuous=</span><span class="s">"true"</span> <span class="na">data-auto=</span><span class="s">"0"</span> <span class="na">data-speed=</span><span class="s">"300"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-wrap"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"swipe-slide"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/image_01.jpg"</span> <span class="na">data-src=</span><span class="s">"img/image_01.jpg"</span> <span class="na">alt=</span><span class="s">"image_01"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;figcaption</span> <span class="na">class=</span><span class="s">"swipe-slide-caption"</span><span class="nt">&gt;</span>image 01<span class="nt">&lt;/figcaption&gt;</span>
+            <span class="nt">&lt;/figure&gt;</span>
+
+            <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"swipe-slide"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"</span>
+                    <span class="na">data-src=</span><span class="s">"img/image_02.jpg"</span> <span class="na">alt=</span><span class="s">"image_02"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;figcaption</span> <span class="na">class=</span><span class="s">"swipe-slide-caption"</span><span class="nt">&gt;</span>image 02<span class="nt">&lt;/figcaption&gt;</span>
+            <span class="nt">&lt;/figure&gt;</span>
+
+            <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"swipe-slide"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"</span>
+                    <span class="na">data-src=</span><span class="s">"img/image_03.jpg"</span> <span class="na">alt=</span><span class="s">"image_03"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;figcaption</span> <span class="na">class=</span><span class="s">"swipe-slide-caption"</span><span class="nt">&gt;</span>image 03<span class="nt">&lt;/figcaption&gt;</span>
+            <span class="nt">&lt;/figure&gt;</span>
+
+            <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"swipe-slide"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"</span>
+                    <span class="na">data-src=</span><span class="s">"img/image_04.jpg"</span> <span class="na">alt=</span><span class="s">"image_04"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;figcaption</span> <span class="na">class=</span><span class="s">"swipe-slide-caption"</span><span class="nt">&gt;</span>image 04<span class="nt">&lt;/figcaption&gt;</span>
+            <span class="nt">&lt;/figure&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-nav"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"swipe-prev"</span><span class="nt">&gt;</span>Prev.<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"swipe-next"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-pages"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swipe-caption"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<ul>
+<li>Chaque diapositive est une <strong>figure</strong>,</li>
+<li>Chaque <code>img</code> contenue doit avoir deux attributs : <code>src</code> et <code>data-src</code>,</li>
+<li>
+<code>data-src</code> doit contenir l'URI de l'image,</li>
+<li>L'attribut <code>src</code> de la <strong>première</strong> diapo doit contenir l'URI de l'image,</li>
+<li>Tous les autres attributs <code>src</code> doivent contenir une image vide. La valeur
+<code>data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7</code> est la
+représentation en base 64 d'un gif transparent de 1x1 px,</li>
+<li>Swipext masque automatiquement tous les <strong>.swipe-slide-caption</strong> et remplace <strong>.swipe-caption</strong>
+avec la légende de la diapo courante : c'est nettement plus pratique pour la mise en place CSS ;-)</li>
+</ul><p><strong>Pourquoi utiliser cette étrange image en base 64 ?</strong></p>
+
+<p>Afin de décharger l'image du navigateur pour libérer de la mémoire, enlever l'attribut <code>src</code> ne
+suffit pas. Vous devez écraser l'image et la remplacer par ce gif transparent fonctionne plutôt
+bien :-).</p>
+
+<p><strong>Astuce</strong> : selon votre thème graphique, vous préférerez peut-être utiliser un gif noir. Dans ce
+cas, la valeur en base 64 est
+<code>data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=</code>.</p>
+
+<h3>
+<a name="intervalle-de-chargement-diff%C3%A9r%C3%A9" class="anchor" href="#intervalle-de-chargement-diff%C3%A9r%C3%A9"><span class="octicon octicon-link"></span></a>Intervalle de chargement différé</h3>
+
+<p>Ce paramètre vous permet de choisir le nombre d'images à charger autour de la diapo courante.</p>
+
+<p>Voici la séquence de fonctionnement pour un caroussel non continu avec un intervalle de 1 :</p>
+
+<pre><code>x = image chargée
+X = diapositive courante
+- = image déchargée
+
+HTML : X - - - -    (correspond au code ci-dessus)
+INIT : X x - - -    (après l'initialisation de Swipext)
+NEXT : x X x - -    (après clic sur le bouton suivant)
+NEXT : - x X x -
+NEXT : - - x X x
+NEXT : - - - x X
+</code></pre>
+
+<p>Maintenant, voici la séquence de fonctionnement pour un caroussel en continu, toujours avec un
+intervalle de 1 :</p>
+
+<pre><code>HTML : X - - - -
+INIT : X x - - x    (la dernière diapo est chargée car vous pouvez revenir en arrière)
+NEXT : x X x - -    
+NEXT : - x X x -
+NEXT : - - x X x
+NEXT : x - - x X
+NEXT : X x - - x
+</code></pre>
+
+<p>Exercice : écrivez la séquence de fonctionnement avec un intervalle de 2 :-D (ou plus).</p>
+
+<h2>
+<a name="compatibilit%C3%A9" class="anchor" href="#compatibilit%C3%A9"><span class="octicon octicon-link"></span></a>Compatibilité</h2>
+
+<p>Swipext est autant compatible que <a href="http://swipejs.com">Swipe</a> avec les navigateurs.</p>
+
+<p>J'ai développé Swipext avec jQuery 1.10.1 mais les versions antérieurs devraient être compatibles
+(non testé).</p>
+
+<h2>
+<a name="qui-utilise-swipext-" class="anchor" href="#qui-utilise-swipext-"><span class="octicon octicon-link"></span></a>Qui utilise Swipext ?</h2>
+
+<p>Pour l'instant, personne ;-). Si Swipext répond à vos besoins et que vous l'utilisez pour votre
+site, je serais ravis de l'apprendre et de publier votre lien ici.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/SamRay1024">SamRay1024</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

@@ -1,0 +1,57 @@
+/**
+ * Swipext simple theme.
+ */
+.se-simple { background-color: black; }
+.se-simple .swipe-nav {
+	padding: 10px;
+	position: absolute;
+	top: 0; left: 0; right: 0;
+}
+
+.se-simple .swipe-nav button { 
+	background: rgba(255, 255, 255, .4);
+	display: block;
+	float: left;
+	margin: 0 5px 5px 0;
+	padding: 0;
+	height: 12px;
+	width: 12px;
+	text-indent: -500em;
+}
+.se-simple .swipe-prev,
+.se-simple .swipe-next {
+	background: none !important;
+	border-color: transparent;
+	border-width: 6px 0 6px 0;
+}
+.se-simple .swipe-prev {
+	border-left: none;
+	border-right-color: rgba(255, 255, 255, .4);
+	border-right-width: 12px;
+	border-right-style: solid;
+}
+.se-simple .swipe-prev:hover { border-right-color: rgba(255, 255, 255, .9); }
+.se-simple .swipe-next {
+	border-right: none;
+	border-left-color: rgba(255, 255, 255, 0.4);
+	border-left-width: 12px;
+	border-left-style: solid;
+}
+.se-simple .swipe-next:hover { border-left-color: rgba(255, 255, 255, .9); }
+.se-simple .swipe-page {
+	border: none;
+	border-radius: 12px;
+}
+.se-simple .swipe-nav button:hover,
+.se-simple .swipe-page.active { background: rgba(255, 255, 255, .9); }
+
+.se-simple .swipe-caption {
+	background: rgba(0, 0, 0, 0.7);
+	color: white;
+	padding: 10px;
+	position: absolute;
+	bottom: 0; left: 0; right: 0;
+}
+
+
+.se-simple .hide { visibility: hidden; }

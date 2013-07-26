@@ -1,0 +1,90 @@
+/**
+ * Swipejs base rules
+ */
+.swipe {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+}
+.swipe-wrap {
+	overflow: hidden;
+	position: relative;
+}
+.swipe-wrap > .swipe-slide {
+	float:left;
+	width:100%;
+	position: relative;
+	margin:0;
+}
+.swipe-slide img {
+	width: 100%;
+}
+
+/**
+ * Swipext base rules
+ */
+.swipext {
+	position: relative;
+	width: 600px;
+}
+.swipext button {
+	cursor: pointer;
+}
+
+/**
+ * Swipext default theme.
+ */
+.se-default .swipe-nav {
+	box-sizing: border-box;
+	padding: 10px;
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+}
+.se-default .swipe-nav .swipe-prev,
+.se-default .swipe-nav .swipe-next {
+	background: none;
+	border-width: 6px 0;
+	border-style: solid;
+	border-color: transparent;
+	color: rgba(255, 255, 255, 0.5);
+	float: left;
+	height: 12px;
+	margin: 0 5px 0 0;
+	padding: 0;
+	width: 12px;
+	text-indent: -500em;
+}
+.se-default .swipe-prev {
+	border-right-color: rgba(255, 255, 255, 0.5) !important;
+	border-right-width: 12px !important;
+}
+.se-default .swipe-next {
+	border-left-color: rgba(255, 255, 255, 0.5) !important;
+	border-left-width: 12px !important;
+}
+.se-default .swipe-prev:hover { border-right-color: white !important; }
+.se-default .swipe-next:hover { border-left-color: white !important; }
+
+.se-default .swipe-pages {
+	float: left;
+}
+.se-default .swipe-page {
+	background: rgba(255, 255, 255, 0.5);
+	border: none;
+	border-radius: 12px;
+	float: left;
+	height: 12px;
+	width: 12px;
+	margin: 0 5px 0 0;
+	padding: 0;
+	text-indent: -500em;
+}
+.se-default .swipe-page:hover,
+.se-default .swipe-page.active {
+	background: white;
+}
+
+.se-default .swipe-caption {
+
+}

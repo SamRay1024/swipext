@@ -1,0 +1,51 @@
+/**
+ * Swipext default theme.
+ */
+.se-default .swipe-prev,
+.se-default .swipe-next {
+	background: rgba(255, 255, 255, .2);
+	border: none;
+	border-radius: 4px;
+	color: white;
+	font-size: 2em;
+	font-weight: bold;
+	padding: 5px 10px 10px;
+	position: absolute;
+	top: 10px;
+	text-transform: uppercase;
+}
+.se-default .swipe-prev:hover,
+.se-default .swipe-next:hover {
+	background: rgba(255, 255, 255, .8);
+	color: slategray;
+}
+.se-default .swipe-prev { left: 10px; }
+.se-default .swipe-next { right: 10px; }
+
+.se-default .swipe-caption {
+	border-radius: 4px;
+	box-sizing: border-box;
+	color: #333;
+	font-size: 1.1em;
+	margin-top: 5px;
+}
+
+.se-default .swipe-pages { text-align: center; }
+.se-default .swipe-page {
+	background: #ccc;
+	border-radius: 2px;
+	border: none;
+	color: #333;
+	margin-right: 5px;
+	padding: 3px 9px;
+}
+.se-default .swipe-page:hover {
+	background: steelblue;
+	color: white;
+}
+.se-default .swipe-page.active { 
+	background: slategray;
+	color: white;
+}
+
+.se-default .hide { display: none; }

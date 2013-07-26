@@ -1,0 +1,48 @@
+/**
+ * Swipext tabs theme.
+ */
+.se-tabs::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.se-tabs .swipe-pages {
+	border-color: #ddd;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+}
+.se-tabs .swipe-pages:after {
+	clear: both;
+	content: '';
+	display: block;
+}
+.se-tabs .swipe-pages {
+	display: block;
+	height: auto;
+	width: auto;
+}
+
+.se-tabs .swipe-page {
+	background-color: #eee;
+	border: 1px solid #ddd;
+	display: block;
+	float: left;
+	margin: 0 5px -1px 0;
+	padding: 10px 15px;
+	text-decoration: none;
+}
+.se-tabs .swipe-page.active {
+	background-color: white;
+	border-bottom: 1px solid white; 
+}
+
+.se-tabs .swipe {
+	border: 1px solid #ddd;
+	border-top-width: 0;
+}
+.se-tabs .swipe-slide {
+	box-sizing: border-box;
+	padding: 10px;
+}
+.se-tabs .swipe-slide.active { display: block; }

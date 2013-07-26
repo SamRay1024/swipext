@@ -1,0 +1,29 @@
+/**
+ * Swipejs base rules
+ */
+.swipe {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+}
+.swipe-wrap {
+	overflow: hidden;
+	position: relative;
+}
+.swipe-wrap > .swipe-slide {
+	float:left;
+	width:100%;
+	position: relative;
+	margin:0;
+}
+.swipe-slide img {
+	vertical-align: middle;
+	width: 100%;
+}
+figure.swipe-slide { text-align: center; }
+
+/**
+ * Swipext base rules
+ */
+.swipext { position: relative; }
+.swipext button { cursor: pointer; }

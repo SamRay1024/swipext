@@ -1,0 +1,111 @@
+<!DOCTYPE HTML> 
+<html lang="fr">
+	<head>
+		<title>Swipe Extended</title>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+		<style type="text/css">
+			body { max-width: 600px; margin: 0 auto; }
+			* { font-family: sans-serif; }
+		</style>
+
+		<link href="base.css" rel="stylesheet">
+		<link href="se-default.css" rel="stylesheet">
+	</head>
+	<body>
+
+		<h1>Swipe Extended Slider - Default theme</h1>
+
+		<p>auto = false, continuous = true, lazy loading = true.</p>
+
+		<div class="swipext se-default" data-lazyload="true" data-continuous="true">
+			<div class="swipe">
+				<div class="swipe-wrap">
+					<figure class="swipe-slide">
+						<img src="img/nature_01.jpg" data-src="img/nature_01.jpg" alt="nature_01" />
+						<figcaption class="swipe-slide-caption">nature 01</figcaption>
+					</figure>
+					
+					<figure class="swipe-slide">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+							 data-src="img/nature_02.jpg" alt="nature_02" />
+						<figcaption class="swipe-slide-caption">nature 02</figcaption>
+					</figure>
+
+					<figure class="swipe-slide">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+							 data-src="img/nature_03.jpg" alt="nature_03" />
+						<figcaption class="swipe-slide-caption">nature 03</figcaption>
+					</figure>
+					
+					<figure class="swipe-slide">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+							 data-src="img/nature_04.jpg" alt="nature_04" />
+						<figcaption class="swipe-slide-caption">nature 04</figcaption>
+					</figure>
+
+					<figure class="swipe-slide">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+							 data-src="img/nature_05.jpg" alt="nature_05" />
+						<figcaption class="swipe-slide-caption">nature 05</figcaption>
+					</figure>
+					
+					<figure class="swipe-slide">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+							 data-src="img/nature_06.jpg" alt="nature_06" />
+						<figcaption class="swipe-slide-caption">nature 06</figcaption>
+					</figure>
+
+					<figure class="swipe-slide">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+							 data-src="img/nature_07.jpg" alt="nature_07" />
+						<figcaption class="swipe-slide-caption">nature 07</figcaption>
+					</figure>
+
+					<figure class="swipe-slide">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+							 data-src="img/nature_08.jpg" alt="nature_08" />
+						<figcaption class="swipe-slide-caption">nature 08</figcaption>
+					</figure>
+
+					<figure class="swipe-slide">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+							 data-src="img/nature_09.jpg" alt="nature_09" />
+						<figcaption class="swipe-slide-caption">nature 09</figcaption>
+					</figure>
+
+					<figure class="swipe-slide">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+							 data-src="img/nature_10.jpg" alt="nature_10" />
+						<figcaption class="swipe-slide-caption">nature 10</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="swipe-caption"></div>
+			<div class="swipe-nav">
+				<button class="swipe-prev">←</button>
+				<button class="swipe-next">→</button>
+				<div class="swipe-pages"></div>
+			</div>
+		</div>
+
+		<p>Other demos :</p>
+		<ul>
+			<li><a href="demo_raw.html">Raw version</a></li>
+			<li><a href="demo_theme_simple.html">Simple theme</a></li>
+			<li><a href="demo_theme_tabs.html">Tabs theme</a></li>
+		</ul>
+
+		<script src="jquery.js"></script>
+		<script src="swipe.js"></script>
+		<script src="swipext.js"></script>
+		<script>
+			jQuery(document).ready(function($) {
+
+			 	$('.swipext').swipext();
+			});
+		</script>
+	</body>
+</html>

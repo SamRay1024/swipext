@@ -114,16 +114,68 @@
 
 		/**
 		 * On resize window.
+		 *
+		 * Thanks to http://owlgraphic.com/owlcarousel/.
 		 */
 		onResize: function() {
 
-			var sCurrentHeight = $('img', this.objSlides[this.iCurrentSlide]).height();
+			var that = this,
+				domCurrentImg = $('img', that.objSlides[that.iCurrentSlide]).get(0),
+				iIterations = 0;
 
-			$('img', this.objSlides).each(function() {
+			/**
+			 * Update heights of wrapper and others images from current image displayed.
+			 */
+			function updateHeights() {
 
-				if( $(this).attr('src') != $(this).data('src') )
-					$(this).css('max-height', sCurrentHeight);
-			});
+				var sCurrentHeight = $('img', that.objSlides[that.iCurrentSlide]).height()
+
+				that.objWrap.height(sCurrentHeight);
+
+				$('img', that.objSlides).each(function() {
+
+					if( $(that).attr('src') != $(that).data('src') )
+						$(that).css('max-height', sCurrentHeight);
+				});	
+			}
+
+			/**
+			 * Is the given image downloaded ?
+			 * @param {object} domImg DOM image.
+			 * @return {Boolean}
+			 */
+			function isImageComplete(domImg) {
+
+				if (!domImg.complete)
+					return false;
+
+				// It's possible to have complete = true and naturalWidth == 1 /!\
+				if (typeof domImg.naturalWidth !== undefined && domImg.naturalWidth <= 1)
+					return false;
+
+				return true;
+			}
+
+			/**
+			 * Wait for the loading image.
+			 */
+			function waitForImageComplete() {
+
+				iIterations++;
+
+				if (isImageComplete(domCurrentImg))
+					updateHeights();
+				else if (iIterations <= 100)
+					window.setTimeout(waitForImageComplete, 100);	
+			}
+
+			if (domCurrentImg !== undefined) {
+
+				iIterations = 0;
+				waitForImageComplete();
+			}
+			else
+				updateHeights();
 		},
 
 		/**
@@ -315,8 +367,8 @@
 	 */
 	$.fn['swipext'] = function ( options ) {
         return this.each(function () {
-            if (!$.data(this, "plugin_swipext")) {
-                $.data(this, "plugin_swipext", new Swipext( this, options ));
+            if (!$.data(this, 'swipext')) {
+                $.data(this, 'swipext', new Swipext( this, options ));
             }
         });
     };
